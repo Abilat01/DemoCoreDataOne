@@ -31,6 +31,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="To-Do List" id="mXf-H5-Waj">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="trash" catalog="system" id="XZr-7G-SwC">
+                            <connections>
+                                <action selector="deleteAll:" destination="gRW-qq-Dpq" id="K2R-6f-BQ9"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="djA-tE-s9B">
                             <connections>
                                 <action selector="saveTask:" destination="gRW-qq-Dpq" id="8wz-lv-H90"/>
@@ -62,6 +67,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="trash" catalog="system" width="121" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

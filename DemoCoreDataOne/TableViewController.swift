@@ -72,6 +72,26 @@ class TableViewController: UITableViewController {
         }
     }
     
+    @IBAction func deleteAll(_ sender: UIBarButtonItem) {
+        
+        let context = getContext()
+        let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
+        if let objects = try? context.fetch(fetchRequest) {
+            for object in objects {
+                context.delete(object)
+            }
+        }
+        
+        do {
+            try context.save()
+            tableView.reloadData()
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
+        
+    }
+    
+    
     //Можно кстати чуть сократить код, вижу две одиноковые строчки, делаю вот так
     private func getContext() -> NSManagedObjectContext {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
